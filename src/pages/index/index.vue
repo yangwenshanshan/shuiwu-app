@@ -1,9 +1,21 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
+		<!-- :height="scrollHeight" -->
+		<scrollpull ref="scrollpull" @scrollUpdate="scrollUpdate" @scrollBottom="scrollBottom">
+			<view class="">
+				11111111111111
+			</view>
+			<view class="">
+				11111111111111
+			</view>
+			<view class="">
+				11111111111111
+			</view>
+    </scrollpull>
+		<!-- <image class="logo" src="/static/logo.png"></image>
 		<view>
 			<text class="title">{{title}}</text>
-		</view>
+		</view> -->
 	</view>
 </template>
 
@@ -11,14 +23,23 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+				scrollHeight: '600rpx'
 			}
 		},
 		onLoad() {
 
 		},
 		methods: {
-
+			scrollUpdate (e) {
+				console.log('scrollUpdate', e)
+				setTimeout(() => {
+					this.$refs.scrollpull.cancel()
+				}, 2000);
+			},
+			scrollBottom (e) {
+				console.log('scrollBottom', e)
+			}
 		}
 	}
 </script>
