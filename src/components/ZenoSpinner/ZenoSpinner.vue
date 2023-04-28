@@ -1,5 +1,5 @@
 <template>
-  <view class="spinner" :style="spinnerStyle">
+  <view class="ZenoSpinner" :style="spinnerStyle">
     <view class="spinner-container container1">
       <view class="circle1 view" :style="containerView"></view>
       <view class="circle2 view" :style="containerView"></view>
@@ -23,6 +23,7 @@
 
 <script>
 export default {
+  name: 'ZenoSpinner',
   data () {
     return {
       spinnerStyle: null,
@@ -47,7 +48,7 @@ export default {
 </script>
 
 <style lang="scss">
-.spinner {
+.ZenoSpinner {
   width: 30rpx;
   height: 30rpx;
   position: relative;
