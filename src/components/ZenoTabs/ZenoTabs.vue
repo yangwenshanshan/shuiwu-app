@@ -1,6 +1,6 @@
 <template>
   <view class="ZenoTabs" v-if="tabs && tabs.length">
-    <view :class="activeIndex === index ? 'zeno-tab_active' : ''" class="zeno-tab" v-for="(item, index) in tabs" :key="index" @click="changeTab(item, index)">{{ item.title }}</view>
+    <view :class="activeIndex === index ? 'zeno-tab_active' : ''" class="zeno-tab" v-for="(item, index) in tabs" :key="index" @click="changeTab(item, index)">{{ item.title }} <view class="re-dot" v-if="item.count !== undefined">{{ item.count }}</view> </view>
     <view class="zeno-tabs__line" :style="'transform: translateX(' + tabWidthHalf + 'px) translateX(-50%);'"></view>
   </view>
 </template>
@@ -68,7 +68,9 @@ export default {
   background-color: #fff;
   user-select: none;
   height: 70rpx;
+  border-bottom: 1px solid #979797;
   .zeno-tab{
+    font-size: 28rpx;
     &.zeno-tab_active{
       color: #3761F4;
     }
@@ -96,6 +98,16 @@ export default {
     background-color: #3761F4;
     border-radius: 6rpx;
     transition-duration: 0.3s;
+  }
+  .re-dot{
+    font-size: 24rpx;
+    background: red;
+    padding: 0 10rpx;
+    height: 30rpx;
+    border-radius: 30rpx;
+    color: #fff;
+    line-height: 30rpx;
+    margin-left: 10rpx;
   }
 }
 </style>

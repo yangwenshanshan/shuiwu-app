@@ -21,17 +21,23 @@ uni.addInterceptor('showToast', {
 
 uni.addInterceptor('request', {
   returnValue(args) {
-    console.log(args)
     return {
       xhr: args,
       promise: new Promise((resolve, reject) => {
         args._xhr.onload = function () {
           const res = JSON.parse(this.response)
           if (this.status === 200) {
-            resolve(res)
+            if (res.error) {
+              uni.showToast({
+                title: res.error.message,
+              })
+              reject(new Error(res.error.message))
+            } else {
+              resolve(res)
+            }
           } else {
             let message = '操作失败，请重试'
-            if (res.data && res.data.errors && res.data.errors[0]) {
+            if (res.data && res.data.errors) {
               message = res.data.errors[0].message
             }
             uni.showToast({

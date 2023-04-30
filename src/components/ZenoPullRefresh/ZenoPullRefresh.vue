@@ -49,7 +49,7 @@ export default {
     },
     max: {
       type: Number,
-      default: 100
+      default: 400
     },
     updateHeight: {
       type: Number,
@@ -96,7 +96,7 @@ export default {
           this.updateTimer = null
         }, 300)
         this.updateTimer = updateTimer
-      }, 1000)
+      }, 500)
       this.loadingTimer = loadingTimer
     },
     startTouch (e) {

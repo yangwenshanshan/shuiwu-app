@@ -1,26 +1,33 @@
 {
 	"pages": [
-		// 海淀水务
 		{
 			"path": "pages/index/index"
 		},
 		{
 			"path": "pages/login/login",
 			"style": {
-				"navigationBarTitleText": "login"
+				"navigationBarTitleText": "登录",
+				"navigationStyle": "custom"
 			}
 		},
 		{
 			"path": "pages/home/home",
 			"style": {
-				"navigationBarTitleText": "home"
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/daily/daily",
+			"style": {
+				"navigationBarTitleText": "日报"
 			}
 		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarTitleText": "海淀水务",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#FFFFFF"
 	}
 }

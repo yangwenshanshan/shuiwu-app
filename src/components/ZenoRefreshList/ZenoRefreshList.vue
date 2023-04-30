@@ -44,5 +44,6 @@ export default {
 <style lang="scss">
 .scroll-view{
   height: 100%;
+  box-sizing: border-box;
 }
 </style>

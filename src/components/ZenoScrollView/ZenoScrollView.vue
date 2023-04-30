@@ -1,11 +1,16 @@
 <template>
   <view class="ZenoScrollView">
     <ZenoRefreshList ref="ZenoRefreshList" @scrollUpdate="scrollUpdate" @scrollBottom="scrollBottom">
-      <slot v-for="(item, index) in list" name="scope" :row="item" :index="index"></slot>
+      <view class="scrollview-padding">
+        <slot v-for="(item, index) in list" name="scope" :row="item" :index="index"></slot>
+      </view>
       <template v-if="list && list.length">
         <view v-if="!isError && isFinish" class="loading-placeholder">没有更多了</view>
         <view v-if="!isError && !isFinish" class="loading-placeholder">加载中...</view>
         <view v-if="isError" class="loading-placeholder" @click="getList">请求失败，点击重新加载</view>
+      </template>
+      <template v-if="!isLoading && (!list || !list.length)">
+        <view class="loading-placeholder">没有更多了</view>
       </template>
     </ZenoRefreshList>
   </view>
@@ -76,6 +81,7 @@ export default {
           } else {
             this.list = this.list.concat(list)
           }
+          this.$emit('response', res)
         }).catch(() => {
           this.xhr = null
           this.isError = true
@@ -88,7 +94,7 @@ export default {
     },
     scrollBottom () {
       this.refreshType  = ''
-      if (this.isFinish && this.isLoading) {
+      if (this.isFinish || this.isLoading) {
         return false
       }
       this.getList()
@@ -123,6 +129,10 @@ export default {
     font-size: 28rpx;
     color: #969799;
     line-height: 90rpx;
+    background: #fff;
+  }
+  .scrollview-padding{
+    padding: 15rpx;
   }
 }
 </style>
