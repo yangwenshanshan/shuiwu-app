@@ -24,6 +24,12 @@
           <ZenoInput title="地点" v-model="defaultArrayValue" placeholder="请选择地点"></ZenoInput>
           <ZenoTextarea title="日报内容" v-model="defaultArrayValue" placeholder="请输入内容"></ZenoTextarea>
           <ZenoAppendix :value="attachments" @change="uploadChange"></ZenoAppendix>
+          <ZenoCellGroup>
+            <ZenoCell label="时间" half>04:11</ZenoCell>
+            <ZenoCell label="时间" half>04:11</ZenoCell>
+            <ZenoCell label="时间">04:11</ZenoCell>
+          </ZenoCellGroup>
+          <ZenoButton>下一步</ZenoButton>
         </view>
       </template>
     </ZenoMultiScrollView>
