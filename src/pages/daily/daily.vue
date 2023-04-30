@@ -23,7 +23,7 @@
           <ZenoPicker title="汇报给" v-model="defaultArrayValue" :options="array" placeholder="请选择汇报人"></ZenoPicker>
           <ZenoInput title="地点" v-model="defaultArrayValue" placeholder="请选择地点"></ZenoInput>
           <ZenoTextarea title="日报内容" v-model="defaultArrayValue" placeholder="请输入内容"></ZenoTextarea>
-          <ZenoAppendix :value="attachments" @change="uploadChange"></ZenoAppendix>
+          <ZenoAppendix title="附件" :value="attachments" @change="uploadChange"></ZenoAppendix>
           <ZenoCellGroup>
             <ZenoCell label="时间" half>04:11</ZenoCell>
             <ZenoCell label="时间" half>04:11</ZenoCell>
